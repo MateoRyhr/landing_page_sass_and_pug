@@ -1,0 +1,6 @@
+footer.footer
+    p= copyright
+    .footer__icons-container
+        each icon in social_network_icons
+            a(class="footer__icons-container-link" href= icon[0])
+                i(class="footer__icons-container-icon " + icon[1] title= icon[2])
