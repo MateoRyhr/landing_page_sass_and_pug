@@ -19,12 +19,12 @@
 
 /*--------------------------------------------Main content*/
 
-.main{
-    background-color: $color_secondary;
-}
-
 .main__box{
-    @include caja_fondo_de_imagen_y_texto("../images/main_small.jpg",100vw, 65vh,white,2em);
+    @include caja_fondo_de_imagen_y_text("../images/main_small.jpg","../images/main_medium.jpg","../images/main_large.jpg","../images/main_xlarge.jpg",$color_secondary,100vw, 65vh,white,2em);
+}
+/*
+.main__box{
+    @include caja_fondo_de_imagen_y_text("../images/main_small.jpg",100vw, 65vh,white,2em);
 
     @include media(tablet){
         background-image: url("../images/main_medium.jpg");
@@ -47,7 +47,7 @@
         background-image: url("../images/main_xlarge.jpg");
     }
 }
-
+*/
 
 /*--------------------------------------------Footer*/
 

@@ -84,18 +84,28 @@ table {
         text-decoration: underline; }
 
 /*--------------------------------------------Main content*/
-.main {
-  background-color: #f8b500; }
-
 .main__box {
   width: 100vw;
   height: 65vh;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background-color: #f8b500;
   background-image: url("../images/main_small.jpg");
   background-repeat: no-repeat;
-  text-align: center; }
+  text-align: center;
+  /*
+    &__box{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }*/ }
+  .main__box-title {
+    width: 90%;
+    font-size: calc(2em * 1.5);
+    color: white;
+    margin-bottom: 10vh; }
   .main__box-text {
     width: 75%;
     font-size: 2em;
@@ -103,21 +113,52 @@ table {
   @media only screen and (min-width: 640px) {
     .main__box {
       background-image: url("../images/main_medium.jpg"); }
+      .main__box-title {
+        font-size: calc(2em * 1.5 + 1em); }
       .main__box-text {
-        font-size: 2.5em; } }
+        font-size: calc($text-size + 1em); } }
   @media only screen and (min-width: 1200px) {
     .main__box {
       background-image: url("../images/main_large.jpg");
       height: 80vh; }
+      .main__box-title {
+        font-size: calc(2em * 1.5 + 3em); }
       .main__box-text {
-        font-size: 3em;
-        color: black; } }
+        font-size: calc(2em + 2em); } }
   @media only screen and (min-width: 1981px) {
     .main__box {
       background-image: url("../images/main_xlarge.jpg"); }
+      .main__box-title {
+        font-size: calc(2em * 1.5 + 4em); }
       .main__box-text {
-        font-size: 3.5em; } }
+        font-size: calc(2em + 3em); } }
 
+/*
+.main__box{
+    @include caja_fondo_de_imagen_y_text("../images/main_small.jpg",100vw, 65vh,white,2em);
+
+    @include media(tablet){
+        background-image: url("../images/main_medium.jpg");
+        &-text{
+            font-size: 2.5em;
+        }
+    }
+    @include media(desktop-m){
+        background-image: url("../images/main_large.jpg");
+        height: 80vh;
+        &-text{
+            font-size: 3em;
+            color: black;
+        }
+    }
+    @include media(desktop-xl){
+        &-text{
+            font-size: 3.5em;
+        }
+        background-image: url("../images/main_xlarge.jpg");
+    }
+}
+*/
 /*--------------------------------------------Footer*/
 .footer {
   width: 100%;

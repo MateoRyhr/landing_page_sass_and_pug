@@ -7,24 +7,70 @@ $color_fourth: rgb(33,37,41);
 
 //mixins
 
-@mixin caja_fondo_de_imagen_y_texto($src,$width,$height,$text-color,$text-size){
+@mixin caja_fondo_de_imagen_y_text($src_s,$src_m,$src_l,$src_xl,$background_color,$width,$height,$text-color,$text-size){
     
     width: $width;
     height: $height;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
-    background-image: url("#{$src}");
+    background-color: $background_color;
+    background-image: url("#{$src_s}");
     background-repeat: no-repeat;
 
     text-align: center;
+    /*
+    &__box{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }*/
+
+    &-title{
+      width: 90%;
+      font-size: calc(#{$text-size} * 1.5);
+      color: $text-color;
+      margin-bottom: 10vh;
+    }
 
     &-text{
         width: 75%;
         font-size: $text-size;
         color: $text-color;
     }
+
+    @include media(tablet){
+      background-image: url("#{$src_m}");
+      &-title{
+        font-size: calc(#{$text-size} * 1.5 + 1em);
+      }
+      &-text{
+          font-size: calc($text-size + 1em);
+      }
+    } 
+    @include media(desktop-m){
+      background-image: url("#{$src_l}");
+      height: 80vh;
+      &-title{
+        font-size: calc(#{$text-size} * 1.5 + 3em);
+      }
+      &-text{
+          font-size: calc(#{$text-size} + 2em);
+      }
+    }
+    @include media(desktop-xl){
+      &-title{
+        font-size: calc(#{$text-size} * 1.5 + 4em);
+      }
+      &-text{
+          font-size: calc(#{$text-size} + 3em);
+      }
+      background-image: url("#{$src_xl}");
+  }
+
+
 }
 
 /* Media Queries Mixin
