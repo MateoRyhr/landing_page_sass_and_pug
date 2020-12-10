@@ -1,5 +1,54 @@
 //COLORS
-$color_primary: #FFCC00;
-$color-secondary: #f07b3f;
-$color-third: #ea5455;
-$color-fourth: #2d4059;
+$color_primary: #fed330;
+$color_secondary: #f8b500;
+$color_third: #fceabb;
+$color_fourth: rgb(33,37,41);
+
+
+//mixins
+
+@mixin caja_fondo_de_imagen_y_texto($src,$width,$height,$text-color,$text-size){
+    
+    width: $width;
+    height: $height;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-image: url("#{$src}");
+    background-repeat: no-repeat;
+
+    text-align: center;
+
+    &-text{
+        width: 75%;
+        font-size: $text-size;
+        color: $text-color;
+    }
+}
+
+/* Media Queries Mixin
+**********************/
+
+@mixin media ($breakpoint) {  
+
+    @if $breakpoint == tablet {  
+      @media only screen and (min-width: 640px) { @content; }  
+    }
+    
+    @else if $breakpoint == desktop-s {  
+      @media only screen and (min-width: 992px) { @content; }  
+    } 
+    
+    @else if $breakpoint == desktop-m {  
+      @media only screen and (min-width: 1200px) { @content; }  
+    } 
+    
+    @else if $breakpoint == desktop-l {  
+      @media only screen and (min-width: 1480px) { @content; }  
+    } 
+    
+    @else if $breakpoint == desktop-xl {
+      @media only screen and (min-width: 1981px) { @content; }  
+    }
+}

@@ -1,7 +1,5 @@
 //- variables
 
-//- mixins
-
 //- ---------------content---------------
 
 //- header
@@ -9,9 +7,15 @@
 
 //- main
 
--var main_text = "Lorem ipsum dolor sit amet consectetur adipisicing elit, quos, recusandae obcaecati explicabo aliquid nesciunt ea magni."
+-var main_text = "Lorem ipsum dolor sit amet consectetur"
 
 //-footer
 -var copyright = "© Graham Cereals"
 -var social_network_icons = [["https://www.facebook.com","fab fa-facebook-square","Facebook"],["https://www.instagram.com", "fab fa-instagram-square", "Instagram"],["https://www.twitter.com", "fab fa-twitter-square", "Twitter"]]
+
+//- mixins
+
+mixin caja_fondo_de_imagen_y_texto (padre,texto)
+    div(class= padre + "__box")
+        h3(class= padre + "__box-text")= texto
 
