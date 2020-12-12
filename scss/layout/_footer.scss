@@ -1,5 +1,5 @@
 .footer{
-    width: 100%;
+    width: 100vw;
     height: 25vh;
 
     display: flex;
@@ -24,7 +24,7 @@
 
     &__icons-container{
         display: flex;
-        justify-content: space-evenly;
+        //justify-content: space-evenly;
 
         &-icon{
             margin-right: 10px;

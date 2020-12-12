@@ -1,53 +1,34 @@
-@import "./base/_reset.scss";
-
-/*--------------------------------------------End of reset*/
-
-@import "./utilities/_variables.scss";
-@import "./base/_typo.scss";
-
-/*--------------------------------------------End of utilities import*/
+//@import "./base/_reset.scss";
 
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    width: 100vw;
+}
+
+/*--------------------------------------------End of reset*/
+
+@import "./utilities/_variables.scss";
+@import "./base/_typo.scss";
+@import "./components/divider_subtitle.scss";
+
+/*--------------------------------------------End of utilities import*/
+
+
 
 /*--------------------------------------------Header*/
 
-@import "./layout/header.scss";
+@import "./layout/_header_desplegable_horizontal.scss";
 
 /*--------------------------------------------Main content*/
 
-.main__box{
+.main{
     @include caja_fondo_de_imagen_y_text("../images/main_small.jpg","../images/main_medium.jpg","../images/main_large.jpg","../images/main_xlarge.jpg",$color_secondary,100vw, 65vh,white,2em);
+    @include divider_subtitle(100vw,30vh,$color-fourth,white,1em);
 }
-/*
-.main__box{
-    @include caja_fondo_de_imagen_y_text("../images/main_small.jpg",100vw, 65vh,white,2em);
-
-    @include media(tablet){
-        background-image: url("../images/main_medium.jpg");
-        &-text{
-            font-size: 2.5em;
-        }
-    }
-    @include media(desktop-m){
-        background-image: url("../images/main_large.jpg");
-        height: 80vh;
-        &-text{
-            font-size: 3em;
-            color: black;
-        }
-    }
-    @include media(desktop-xl){
-        &-text{
-            font-size: 3.5em;
-        }
-        background-image: url("../images/main_xlarge.jpg");
-    }
-}
-*/
 
 /*--------------------------------------------Footer*/
 

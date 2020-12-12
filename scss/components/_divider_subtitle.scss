@@ -1,0 +1,36 @@
+@mixin divider_subtitle($width,$heigth,$background_color,$font_color,$font_size){
+    
+    &__subtitle-container{
+
+        width: $width;
+        height: $heigth;
+
+        display: flex;
+        align-items: center;
+
+        background-color: $background_color;
+
+        &-text{
+            margin-left: 8vw;
+
+            color: $font_color;
+            font-size: $font_size;
+        }
+
+        @include media(tablet){
+            &-text{
+                font-size: calc(#{$font-size} + 0.50em);
+            }
+          } 
+          @include media(desktop-m){
+            &-text{
+                font-size: calc(#{$font-size} + 0.75em);
+            }
+          }
+          @include media(desktop-xl){
+            &-text{
+                font-size: calc(#{$font-size} + 1.5em);
+            }
+          }
+    }
+}
