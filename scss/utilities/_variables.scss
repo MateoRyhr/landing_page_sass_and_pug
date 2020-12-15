@@ -1,8 +1,7 @@
 //COLORStext_optional
-$color_primary: #f8b500;
-$color_secondary: #fceabb;
+$color_primary: #56ab2f;
+$color_secondary: #a8e063;
 $color_third: rgb(33,37,41);
-$color_fourth: #ecf0f1;
 
 
 //mixins
@@ -78,7 +77,6 @@ $color_fourth: #ecf0f1;
       } 
       @include media(desktop-m){
         background-image: url("#{$src_l}");
-        height: 80vh;
         &-title{
           font-size: calc(#{$font-size} * 3);
         }

@@ -6,9 +6,6 @@
     box-sizing: border-box;
     font-size: 1em;
 }
-body{
-    width: 100vw;
-}
 
 /*--------------------------------------------End of reset*/
 
@@ -18,25 +15,31 @@ body{
 
 /*--------------------------------------------End of utilities import*/
 
-
+body{
+    width: 100vw;
+    background-color: $color_secondary;
+}
 
 /*--------------------------------------------Header*/
 
 @import "./layout/_header_desplegable_horizontal.scss";
+.header{
+    @media only screen and (max-width: 640px){
+        display: none;
+    }
+}
 
 /*--------------------------------------------Main content*/
 
 .main{
-                                //-($container_class,$src_s,$src_m,$src_l,$src_xl,$background_color,$width,$height_relation,$text-color,$font-size)
     @include caja_fondo_de_imagen_y_text("home","../images/main_s.jpg","../images/main_m.jpg","../images/main_l.jpg","../images/main_xl.jpg",$color_primary,100vw,0.5625,white,1.5em,"center","space-around","center");
-            //- $container_name,$width,$height_relation,$font-size,)
-    @include video("we-produce",100vw,0.5625,0.6em,"space-around","center",0,0,0,0);
+    @include video("we-produce",100vw,0.5625,0.5em,"space-around","center",0,0,0,0);
     &__we-produce{
         &-text{
             font-weight: bold;
         }
     }
-    @include caja_fondo_de_imagen_y_text("sustainable","../images/sustainable_s.jpg","../images/sustainable_m.jpg","../images/sustainable_l.jpg","../images/sustainable_xl.jpg",$color_primary,100vw,0.5625,white,0.6em,"center","space-around","center");
+    @include caja_fondo_de_imagen_y_text("sustainable","../images/sustainable_s.jpg","../images/sustainable_m.jpg","../images/sustainable_l.jpg","../images/sustainable_xl.jpg",$color_primary,100vw,0.5625,white,0.5em,"center","space-around","center");
     &__sustainable{
         flex-direction: row;
     }
