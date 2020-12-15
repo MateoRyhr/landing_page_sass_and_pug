@@ -41,7 +41,7 @@ $color_third: rgb(33,37,41);
     
     &__#{$container_class}{
       width: $width;
-      height: calc(#{$width * #{$height_relation}});
+      height: calc(99vw * #{$height_relation});
       display: flex;
       flex-direction: column;
       justify-content: #{$y_align};
@@ -103,20 +103,20 @@ $color_third: rgb(33,37,41);
 //x_align puede recibir: flex-start, space-around(center), y flex-end .
 //Por lo que hay 9 tipos de alineación posible.
 @mixin video($container_name,$width,$height_relation,$font-size,$x_align,$y_align,$m_top,$m_right,$m_bottom,$m_left){
+
   &__#{$container_name}{
     width: $width;
-    height: calc(#{$width} * #{$height_relation});
+    height: calc(99vw * #{$height_relation});
 
     display: flex;
     justify-content: #{$x_align};
     align-items: #{$y_align};
-
+    
     &-video{
       width: $width;
-      height: calc(#{$width} * #{$height_relation});
+      height: calc(99vw * #{$height_relation});
       position: absolute;
       z-index: -1000;
-      
     }
     &-text{
       margin-top: #{$m_top};

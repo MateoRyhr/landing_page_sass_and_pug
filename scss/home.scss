@@ -1,5 +1,6 @@
 //@import "./base/_reset.scss";
 
+
 *{
     padding: 0;
     margin: 0;
@@ -7,20 +8,26 @@
     font-size: 1em;
 }
 
+
 /*--------------------------------------------End of reset*/
+
 
 @import "./utilities/_variables.scss";
 @import "./base/_typo.scss";
 @import "./components/divider_subtitle.scss";
 
+
 /*--------------------------------------------End of utilities import*/
 
+
 body{
-    width: 100vw;
+    width: 100%;
     background-color: $color_secondary;
 }
 
+
 /*--------------------------------------------Header*/
+
 
 @import "./layout/_header_desplegable_horizontal.scss";
 .header{
@@ -29,28 +36,25 @@ body{
     }
 }
 
+
 /*--------------------------------------------Main content*/
 
+
 .main{
-    @include caja_fondo_de_imagen_y_text("home","../images/main_s.jpg","../images/main_m.jpg","../images/main_l.jpg","../images/main_xl.jpg",$color_primary,100vw,0.5625,white,1.5em,"center","space-around","center");
-    @include video("we-produce",100vw,0.5625,0.5em,"space-around","center",0,0,0,0);
+    @include caja_fondo_de_imagen_y_text("home","../images/main_s.jpg","../images/main_m.jpg","../images/main_l.jpg","../images/main_xl.jpg",$color_primary,100%,0.5625,white,1.5em,"center","space-around","center");
+    @include video("we-produce",100%,0.5625,0.5em,"space-around","center",0,0,0,0);
     &__we-produce{
         &-text{
             font-weight: bold;
         }
     }
-    @include caja_fondo_de_imagen_y_text("sustainable","../images/sustainable_s.jpg","../images/sustainable_m.jpg","../images/sustainable_l.jpg","../images/sustainable_xl.jpg",$color_primary,100vw,0.5625,white,0.5em,"center","space-around","center");
+    @include caja_fondo_de_imagen_y_text("sustainable","../images/sustainable_s.jpg","../images/sustainable_m.jpg","../images/sustainable_l.jpg","../images/sustainable_xl.jpg",$color_primary,100%,0.5625,white,0.5em,"center","space-around","center");
     &__sustainable{
         flex-direction: row;
     }
-
 }
+
 
 /*--------------------------------------------Footer*/
 
 @import "./layout/footer.scss";
-
-
-
-
-
