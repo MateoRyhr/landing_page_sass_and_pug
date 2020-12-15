@@ -2,21 +2,16 @@
     position: fixed;
     left: 10px;
     top: 10px;
+    z-index: 1000;
 
     @include media(tablet){
         left: 20px;
         top: 20px;
-        &__nav-link{
-            font-size: 1.2em;
-        }
     }
 
     @include media(desktop-m){
         left: 30px;
         top: 30px;
-        height: 5vh;
-
-
     }
 
     &__nav{
@@ -29,12 +24,13 @@
         &-menu-icon{
             cursor: pointer;
             font-size: 1.5em;
-            color: $color_fourth;
+            color: $color_third;
         }
 
         &-link{
             display: none;
             padding: 10px;
+            padding-right: 0px;
             
             font-size: 0.8em;
             color: black;
@@ -45,6 +41,12 @@
             }
             &:hover{
                 text-decoration: underline;
+            }
+            @include media(tablet){
+                font-size: 1.2em;
+            }
+            @include media(dektom-m){
+                font-size: 1.5em;
             }
         }
 

@@ -1,94 +1,146 @@
-//COLORS
-$color_primary: #fed330;
-$color_secondary: #f8b500;
-$color_third: #fceabb;
-$color_fourth: rgb(33,37,41);
+//COLORStext_optional
+$color_primary: #f8b500;
+$color_secondary: #fceabb;
+$color_third: rgb(33,37,41);
+$color_fourth: #ecf0f1;
 
 
 //mixins
-
-@mixin caja_fondo_de_imagen_y_text($src_s,$src_m,$src_l,$src_xl,$background_color,$width,$height,$text-color,$text-size){
-    
-    &__box{
-      width: $width;
-      height: $height;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  
-      background-color: $background_color;
-      background-image: url("#{$src_s}");
-      background-repeat: no-repeat;
-  
-      text-align: center;
-      
-      &-title{
-        width: 90%;
-        font-size: calc(#{$text-size} * 1.5);
-        color: $text-color;
-        margin-bottom: 10vh;
-      }
-  
-      &-text{
-          width: 75%;
-          font-size: $text-size;
-          color: $text-color;
-      }
-  
-      @include media(tablet){
-        background-image: url("#{$src_m}");
-        &-title{
-          font-size: calc(#{$text-size} * 1.5 + 1em);
-        }
-        &-text{
-            font-size: calc(#{$text-size} + 1em);
-        }
-      } 
-      @include media(desktop-m){
-        background-image: url("#{$src_l}");
-        height: 80vh;
-        &-title{
-          font-size: calc(#{$text-size} * 1.5 + 3em);
-        }
-        &-text{
-            font-size: calc(#{$text-size} + 2em);
-        }
-      }
-      @include media(desktop-xl){
-        &-title{
-          font-size: calc(#{$text-size} * 1.5 + 4em);
-        }
-        &-text{
-            font-size: calc(#{$text-size} + 3em);
-        }
-        background-image: url("#{$src_xl}");
-      }
-    }
-}
 
 /* Media Queries Mixin
 **********************/
 
 @mixin media ($breakpoint) {  
 
-    @if $breakpoint == tablet {  
-      @media only screen and (min-width: 640px) { @content; }  
-    }
+  @if $breakpoint == tablet {  
+    @media only screen and (min-width: 640px) { @content; }  
+  }
+  
+  @else if $breakpoint == desktop-s {  
+    @media only screen and (min-width: 992px) { @content; }  
+  } 
+  
+  @else if $breakpoint == desktop-m {  
+    @media only screen and (min-width: 1200px) { @content; }  
+  } 
+  
+  @else if $breakpoint == desktop-l {  
+    @media only screen and (min-width: 1480px) { @content; }  
+  } 
+  
+  @else if $breakpoint == desktop-xl {
+    @media only screen and (min-width: 1981px) { @content; }  
+  }
+}
+
+//mixin caja con fonde de imagen y texto
+//x e y _align refiere a la ubicacion del texto
+//y_align puede recibir: flex-start, center, y flex-end .
+//x_align puede recibir: flex-start, space-around(center), y flex-end .
+//Por lo que hay 9 tipos de alineación posible.
+@mixin caja_fondo_de_imagen_y_text($container_class,$src_s,$src_m,$src_l,$src_xl,$background_color,$width,$height_relation,$text-color,$font-size,$x_align,$y_align,$text-align){
     
-    @else if $breakpoint == desktop-s {  
-      @media only screen and (min-width: 992px) { @content; }  
-    } 
-    
-    @else if $breakpoint == desktop-m {  
-      @media only screen and (min-width: 1200px) { @content; }  
-    } 
-    
-    @else if $breakpoint == desktop-l {  
-      @media only screen and (min-width: 1480px) { @content; }  
-    } 
-    
-    @else if $breakpoint == desktop-xl {
-      @media only screen and (min-width: 1981px) { @content; }  
+    &__#{$container_class}{
+      width: $width;
+      height: calc(#{$width * #{$height_relation}});
+      display: flex;
+      flex-direction: column;
+      justify-content: #{$y_align};
+      align-items: #{$x_align};
+  
+      background-color: $background_color;
+      background: url("#{$src_s}");
+      background-repeat: no-repeat;
+      background-size: 100%;
+
+      text-align: #{$text-align};
+      
+      &-title{
+        width: 90%;
+        font-size: calc(#{$font-size} * 2);
+        color: $text-color;
+      }
+  
+      &-text{
+          width: 75%;
+          font-size: $font-size;
+          color: $text-color;
+      }
+  
+      @include media(tablet){
+        background-image: url("#{$src_m}");
+        &-title{
+          font-size: calc(#{$font-size} * 2.5);
+        }
+        &-text{
+            font-size: calc(#{$font-size} * 1.5);
+        }
+      } 
+      @include media(desktop-m){
+        background-image: url("#{$src_l}");
+        height: 80vh;
+        &-title{
+          font-size: calc(#{$font-size} * 3);
+        }
+        &-text{
+            font-size: calc(#{$font-size} * 2);
+        }
+      }
+      @include media(desktop-xl){
+        &-title{
+          font-size: calc(#{$font-size} * 3.5);
+        }
+        &-text{
+            font-size: calc(#{$font-size} * 2.5);
+        }
+        background-image: url("#{$src_xl}");
+      }
     }
 }
+
+//mixin de video
+
+//x e y _align refiere a la ubicacion del texto
+//y_align puede recibir: flex-start, center, y flex-end .
+//x_align puede recibir: flex-start, space-around(center), y flex-end .
+//Por lo que hay 9 tipos de alineación posible.
+@mixin video($container_name,$width,$height_relation,$font-size,$x_align,$y_align,$m_top,$m_right,$m_bottom,$m_left){
+  &__#{$container_name}{
+    width: $width;
+    height: calc(#{$width} * #{$height_relation});
+
+    display: flex;
+    justify-content: #{$x_align};
+    align-items: #{$y_align};
+
+    &-video{
+      width: $width;
+      height: calc(#{$width} * #{$height_relation});
+      position: absolute;
+      z-index: -1000;
+      
+    }
+    &-text{
+      margin-top: #{$m_top};
+      margin-right: #{$m_right};
+      margin-bottom: #{$m_bottom};
+      margin-left: #{$m_left};
+
+      color: white;
+      font-size: calc(#{$font-size} * 2);
+
+      @include media(tablet){
+        font-size: calc(#{$font-size} * 2.5);
+      }
+
+      @include media(desktop-m){
+        font-size: calc(#{$font-size} * 3);
+      }
+      @include media(dektop-xl){
+        font-size: calc(#{$font-size} * 3.5);
+      }
+    }
+  }
+}
+
+

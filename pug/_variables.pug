@@ -3,14 +3,14 @@
 //- ---------------content---------------
 
 //- header
--var menu_links = ["home","sit libero","quisquam","doloribus"]
+-var menu_links = ["home","we produce","we are sustainable","we are"]
 -var menu_icon_class = "fas fa-bars";
 
 //- main
 
 -var main_title = "Graham Cereals"  
 -var main_text = "Lorem ipsum dolor sit amet consectetur"
--var categories_subtitles = ["Sit libero fugiat dicta veniam","quisquam sunt ex voluptatem","doloribus earum impedit magni illo"]
+-var categories_subtitles = ["We produce the highest quality beans","We do sustainable agriculture","doloribus earum impedit magni illo"]
 
 //-footer
 -var copyright = "© Graham Cereals"
@@ -18,8 +18,42 @@
 
 //- mixins
 
-mixin caja_fondo_de_imagen_y_text (padre,text,title)
-    div(class= padre + "__box")
-        h1(class= padre + "__box-title")= title
-        h3(class= padre + "__box-text")= text
+mixin caja_fondo_de_imagen_y_text (padre,container_class,text_id,text,title)
+    div(class= padre + "__" + container_class id= text_id)
+        if(title != "")
+            h1(class= padre + "__" + container_class + "-title")= title
+        if(text != "")
+            h3(class= padre + "__" + container_class + "-text")= text
+
+//- Divider with optional subtitle
+
+mixin divider_subtitle (padre,text_optional)
+    div(class= padre + "__subtitle-container")
+        if(text_optional != "")
+            h2(class= padre + "__subtitle-container-text")= text_optional
+
+//- video with optional text
+
+mixin video(padre,container_name,text_optional,text_id,source_webm_s,source_mp4_s,source_webm_m,source_mp4_m,source_webm_l,source_mp4_l,source_webm_xl,source_mp4_xl)
+    div(id= text_id  class= padre + "__" + container_name)
+        if(text_optional != "")
+            h2(class= padre + "__" + container_name + "-text" )= text_optional
+        video(class= padre + "__" + container_name + "-video" loop autoplay muted)
+            //- small
+            if(source_webm_s != "")
+                source(src= source_webm_s type="video/webm" media="screen and (min-width:640px)")
+                source(src= source_mp4_s type="video/mp4" media="screen and (min-width:640px)")
+            //- medium
+            if(source_webm_m != "")
+                source(src= source_webm_m type="video/webm" media="screen and (min-width:1200px)")
+                source(src= source_mp4_m type="video/mp4" media="screen and (min-width:1200px)")
+            //- large
+            if(source_webm_l != "")
+                source(src= source_webm_l type="video/webm" media="screen and (min-width:1480px)")
+                source(src= source_mp4_l type="video/mp4" media="screen and (min-width:1480px)")
+            //- xl
+            if(source_webm_xl != "")
+                source(src= source_webm_xl type="video/webm" media="screen and (min-width:1981px)")
+                source(src= source_mp4_xl type="video/mp4" media="screen and (min-width:1981px)")
+            p Your browser does not support the video tag.
 

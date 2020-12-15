@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 1em;
 }
 body{
     width: 100vw;
@@ -26,8 +27,20 @@ body{
 /*--------------------------------------------Main content*/
 
 .main{
-    @include caja_fondo_de_imagen_y_text("../images/main_small.jpg","../images/main_medium.jpg","../images/main_large.jpg","../images/main_xlarge.jpg",$color_secondary,100vw, 65vh,white,2em);
-    @include divider_subtitle(100vw,30vh,$color-fourth,white,1em);
+                                //-($container_class,$src_s,$src_m,$src_l,$src_xl,$background_color,$width,$height_relation,$text-color,$font-size)
+    @include caja_fondo_de_imagen_y_text("home","../images/main_s.jpg","../images/main_m.jpg","../images/main_l.jpg","../images/main_xl.jpg",$color_primary,100vw,0.5625,white,1.5em,"center","space-around","center");
+            //- $container_name,$width,$height_relation,$font-size,)
+    @include video("we-produce",100vw,0.5625,0.6em,"space-around","center",0,0,0,0);
+    &__we-produce{
+        &-text{
+            font-weight: bold;
+        }
+    }
+    @include caja_fondo_de_imagen_y_text("sustainable","../images/sustainable_s.jpg","../images/sustainable_m.jpg","../images/sustainable_l.jpg","../images/sustainable_xl.jpg",$color_primary,100vw,0.5625,white,0.6em,"center","space-around","center");
+    &__sustainable{
+        flex-direction: row;
+    }
+
 }
 
 /*--------------------------------------------Footer*/

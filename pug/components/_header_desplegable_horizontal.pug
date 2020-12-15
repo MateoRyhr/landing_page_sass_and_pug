@@ -2,4 +2,4 @@ header.header
     nav.header__nav
         i(class= "header__nav-menu-icon " + menu_icon_class)
         each item in menu_links
-            a.header__nav-link(href= item + ".html")= item
+            a.header__nav-link(href= "#" + item)= item

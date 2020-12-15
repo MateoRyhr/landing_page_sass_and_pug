@@ -1,7 +1,7 @@
 extends ./templates/_template.pug
-include ./components/_divider_subtitle.pug
 
 block main
-    main.main
-        +caja_fondo_de_imagen_y_text("main",main_text,main_title)
-        +divider_subtitle("main",categories_subtitles[0])
+    main(class="main")
+        +caja_fondo_de_imagen_y_text("main","home",menu_links[0],main_text,main_title)
+        +video("main","we-produce",categories_subtitles[0],menu_links[1],"./videos/cosecha_s.webm","./videos/cosecha_s.mp4","./videos/cosecha_m.webm","./videos/cosecha_m.mp4","./videos/cosecha_l.webm","./videos/cosecha_l.mp4","","")
+        +caja_fondo_de_imagen_y_text("main","sustainable",menu_links[2],"",categories_subtitles[1])
